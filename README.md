@@ -1,16 +1,10 @@
-Here’s a **clean, professional, recruiter-level README.md** you can drop straight into your GitHub 👇
-
----
-
 # 🚀 Sales Rep Intelligence API
 
 A backend system that transforms raw sales data into actionable insights, performance rankings, and business intelligence.
 
 Built to go beyond basic CRUD — this project demonstrates real-world backend architecture, data analysis logic, and scalable API design.
 
----
-
-## 📌 Overview
+📌 Overview
 
 The **Sales Rep Intelligence API** is designed to:
 
@@ -20,30 +14,22 @@ The **Sales Rep Intelligence API** is designed to:
 * Detect unusual sales patterns (anomalies)
 * Provide decision-ready insights for management
 
----
-
-## 🧠 Key Features
-
-### 🔐 Authentication
+ 🧠 Key Features
+ 🔐 Authentication
 
 * JWT-based authentication
 * Role-based access:
-
   * Admin
   * Sales Representatives
 
----
-
-### 📊 Sales Data Management
+📊 Sales Data Management
 
 * Weekly sales submission
 * Product categories (e.g. drugs, vaccines)
 * Revenue and quantity tracking
 * Timestamped records
 
----
-
-### 📈 Performance Metrics Engine
+ 📈 Performance Metrics Engine
 
 Automatically computes:
 
@@ -53,7 +39,7 @@ Automatically computes:
 
 ---
 
-### 🏆 Intelligent Ranking System
+🏆 Intelligent Ranking System
 
 Reps are ranked using a weighted formula:
 
@@ -277,42 +263,24 @@ This API:
 * Multi-region sales analysis
 * Role-based analytics views
 
----
 
-## 🤝 Contributing
+
+ 🤝 Contributing
 
 Contributions are welcome.
 Feel free to fork, improve, and submit a pull request.
 
----
 
-## 📄 License
-
-MIT License
-
----
-
-## 👤 Author
+👤 Author
 
 **Olufemi Ibitunde Olusegun**
 
 * Data Analyst → Backend & AI Engineer
 * Passionate about building scalable systems and Web3 solutions
 
----
 
-## ⭐ Final Note
-
-This is not just a project.
-It’s a signal.
-
-It shows you can:
-
-* Think like a backend engineer
-* Reason like a data analyst
-* Build like a product-focused developer
 
 ---
 
 If you want, next step I’d push you on is:
-👉 turning this into a **live API + dashboard combo** (that’s where it becomes elite)
+👉 turning this into a **live API + dashboard combo** (that’s where it becomes elite
