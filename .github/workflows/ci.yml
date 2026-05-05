@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: salesdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 10s --health-timeout 5s --health-retries 5
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install black ruff mypy
+      - name: Lint (ruff)
+        run: |
+          ruff check .
+      - name: Format check (black)
+        run: |
+          black --check .
+      - name: Type check (mypy)
+        run: |
+          mypy .
+      - name: Run tests (if any)
+        env:
+          DATABASE_URL: postgresql+asyncpg://postgres:password@localhost:5432/salesdb
+          REDIS_URL: redis://localhost:6379
+        run: |
+          if [ -d "tests" ]; then
+            pytest -q
+          else
+            echo "No tests directory, skipping tests"
+          fi
